@@ -8,7 +8,7 @@ int idletimeout = 0; /* Screensaver timeout in seconds, 0 to disable */
 char *idlecmd = "rain"; /* The screensaver program */
 
 struct assoc assocs[] = {
-	{ "\\.(avi|mp4|mkv|mp3|ogg|flac|mov)$", "mplayer" },
+	{ "\\.(avi|mp4|mkv|mp3|ogg|flac|mov|wav|aif)$", "mplayer" },
 	{ "\\.(png|jpg|gif)$", "feh" },
 	{ "\\.(html|svg)$", "firefox" },
 	{ "\\.pdf$", "mupdf" },
@@ -67,4 +67,6 @@ struct key bindings[] = {
 	/* Run command with argument */
 	{ 'e',            SEL_RUNARG, "vi", "EDITOR" },
 	{ 'p',            SEL_RUNARG, "less", "PAGER" },
+    /* Append filename to file savelist.txt */
+	{ 's',            SEL_PRINT},
 };

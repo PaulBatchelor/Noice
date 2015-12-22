@@ -62,6 +62,7 @@ enum action {
 	SEL_REDRAW,
 	SEL_RUN,
 	SEL_RUNARG,
+	SEL_PRINT,
 };
 
 struct key {
@@ -645,6 +646,7 @@ browse(const char *ipath, const char *ifilter)
 	struct stat sb;
 	char *name, *bin, *dir, *tmp, *run, *env;
 	int nowtyping = 0;
+    FILE *fp;
 
 	oldpath = NULL;
 	path = xstrdup(ipath);
@@ -867,6 +869,12 @@ moretyping:
 			spawn(run, name, path);
 			initcurses();
 			break;
+        case SEL_PRINT:
+			name = dents[cur].name;
+            fp = fopen("savelist.txt", "a");
+            fprintf(fp, "%s\n", name);
+            fclose(fp);
+            break;
 		}
 		/* Screensaver */
 		if (idletimeout != 0 && idle == idletimeout) {
