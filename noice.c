@@ -872,7 +872,7 @@ moretyping:
         case SEL_PRINT:
 			name = dents[cur].name;
             fp = fopen("savelist.txt", "a");
-            fprintf(fp, "%s\n", name);
+            fprintf(fp, "%s/%s\n", path, name);
             fclose(fp);
             break;
 		}
