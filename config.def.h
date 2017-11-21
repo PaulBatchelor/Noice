@@ -13,12 +13,13 @@ struct assoc assocs[] = {
 	{ "\\.(html|svg)$", "firefox" },
 	{ "\\.pdf$", "mupdf" },
 	{ "\\.sh$", "sh" },
+	{ "\\.sp$", "sp_eval_file" },
 	{ ".", "less" },
 };
 
 struct key bindings[] = {
 	/* Quit */
-	{ 'q',            SEL_QUIT },
+	{ 'Q',            SEL_QUIT },
 	/* Back */
 	{ KEY_BACKSPACE,  SEL_BACK },
 	{ KEY_LEFT,       SEL_BACK },
