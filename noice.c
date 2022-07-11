@@ -186,7 +186,12 @@ spawn(const char *file, const char *arg, const char *dir)
 	if (pid == 0) {
 		if (dir != NULL)
 			chdir(dir);
-		execlp(file, file, arg, NULL);
+		/* terrible hack to get feh going in fullscreen */
+		if (!strcmp(file, "feh")) {
+            execlp(file, file, arg, "-F", NULL);
+        } else {
+            execlp(file, file, arg, NULL);
+        }
 		_exit(1);
 	} else {
 		/* Ignore interruptions */
